@@ -1,0 +1,19 @@
+<div class="container">
+  <p>Az alkalmazás használatához be kell jelentkezned!</p>
+  <form>
+    <input
+      type="text"
+      placeholder="Email"
+      name="email"
+      autocomplete="off"
+      [(ngModel)]="email"
+    />
+    <input
+      type="password"
+      placeholder="Jelszó"
+      name="password"
+      [(ngModel)]="password"
+    />
+  </form>
+  <button (click)="login()">Bejelentkezés</button>
+</div>
