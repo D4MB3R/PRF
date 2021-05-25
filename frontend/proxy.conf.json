@@ -1,0 +1,10 @@
+{
+    "/server": {
+        "target": "herokuapp",
+        "secure": true,
+        "changeOrigin": true,
+        "pathRewrite": {
+            "^/server": ""
+        }
+    }
+}

@@ -1,0 +1,17 @@
+<h2>Termékeink:</h2>
+<div class="table-container">
+  <table>
+    <thead>
+      <th>Név</th>
+      <th>Ár</th>
+      <th></th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of products">
+        <td>{{ p.name }}</td>
+        <td>{{ p.price }}Ft</td>
+        <td><button>Vásárlás</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
