@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataService } from '../services/data.service';
+import { LoggedInService } from '../services/logged-in.service';
 import { LoginService } from '../services/login.service';
 
 @Component({
@@ -12,7 +14,7 @@ export class LoginComponent implements OnInit {
   email: string;
   password: string;
 
-  constructor(private loginService: LoginService, private router: Router) { 
+  constructor(private loginService: LoginService, private router: Router, private dataService: DataService, private loggedInService: LoggedInService) { 
     this.email = "";
     this.password = "";
   }
@@ -21,7 +23,9 @@ export class LoginComponent implements OnInit {
     if (localStorage.getItem('user')) {
       localStorage.removeItem('user');
       this.loginService.logout().then(() => {
-        console.log('Logout successful!')
+        console.log('Logout successful!');
+        this.dataService.changeMessage("false");
+        this.loggedInService.changeMessage("false");
       }).catch(error => {
         console.log('Logout error: ', error);
       });
@@ -35,6 +39,8 @@ export class LoginComponent implements OnInit {
         if (res.user?.email) {
           let email = res.user!.email;
           localStorage.setItem('user', email);
+          if(email === "szaboz@inf.u-szeged.hu") this.dataService.changeMessage("true");
+          this.loggedInService.changeMessage("true");
         }
         this.router.navigate(['/mainpage']);
       }).catch(error => {

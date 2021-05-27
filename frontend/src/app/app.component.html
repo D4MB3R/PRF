@@ -1,6 +1,19 @@
 <div class="page-layout">
   <div class="title">
-    <h1>Adam's webshop</h1>
+    <h1 [routerLink]="'/mainpage'">Adam's webshop</h1>
   </div>
+  <nav *ngIf="admin && loggedIn">
+    <ul>
+      <li [routerLink]="'/manage-purchases'">Vásárolt termékek</li>
+      <li [routerLink]="'/manage-transactions'">Tranzakciók</li>
+      <li (click)="logout()">Kijelentkezés</li>
+    </ul>
+  </nav>
+  <nav *ngIf="!admin && loggedIn">
+    <ul>
+      <li (click)="logout()">Kijelentkezés</li>
+    </ul>
+  </nav>
+
   <router-outlet></router-outlet>
 </div>

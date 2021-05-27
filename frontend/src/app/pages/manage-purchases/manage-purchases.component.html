@@ -1,0 +1,17 @@
+<h2>Termékek, melyeket már vásároltak:</h2>
+<div class="table-container">
+  <table>
+    <thead>
+      <th>ID</th>
+      <th>Név</th>
+      <th>Ár</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of purchases">
+        <td>{{ p.purchase_id }}</td>
+        <td>{{ p.name }}</td>
+        <td>{{ p.price }}Ft</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

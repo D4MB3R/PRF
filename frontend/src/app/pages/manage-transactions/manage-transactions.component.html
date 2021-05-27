@@ -1,0 +1,19 @@
+<h2>Tranzakciók:</h2>
+<div class="table-container">
+  <table>
+    <thead>
+      <th>ID</th>
+      <th>Dátum</th>
+      <th>Vásárlás azonosítója</th>
+      <th>Ár</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let t of transactions">
+        <td>{{ t.transaction_id }}</td>
+        <td>{{ t.date_of_purchase }}</td>
+        <td>{{ t.purchase_id }}</td>
+        <td>{{ t.price }}Ft</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
