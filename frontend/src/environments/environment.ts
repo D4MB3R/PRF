@@ -3,7 +3,13 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  custom: "This is the default environment.",
+  serverUrl: "http://localhost:3000/",
+  springUrl: "http://localhost:8080/",
+  firebase: {
+    apiKey: "secret",
+  }
 };
 
 /*
