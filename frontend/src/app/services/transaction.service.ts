@@ -17,4 +17,8 @@ export class TransactionService {
       map(data => data.map(data => new Transaction().deserialize(data)))
     );
   }
+
+  makeTransaction(date_of_purchase: String, purchase_id: number, price: number) {
+    this.http.post(environment.springUrl + 'transactions', {"date_of_purchase": date_of_purchase, "purchase_id": purchase_id, "price": price}).subscribe();
+  }
 }

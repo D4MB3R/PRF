@@ -17,4 +17,8 @@ export class PurchaseService {
       map(data => data.map(data => new Purchase().deserialize(data)))
     );
   }
+
+  insertPurchase(name: String, price: number) {
+    this.http.post(environment.springUrl + 'purchases', {"name": name, "price": price}).subscribe();
+  }
 }

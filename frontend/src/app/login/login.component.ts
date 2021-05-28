@@ -23,7 +23,6 @@ export class LoginComponent implements OnInit {
     if (localStorage.getItem('user')) {
       localStorage.removeItem('user');
       this.loginService.logout().then(() => {
-        console.log('Logout successful!');
         this.dataService.changeMessage("false");
         this.loggedInService.changeMessage("false");
       }).catch(error => {

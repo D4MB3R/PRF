@@ -10,7 +10,7 @@
       <tr *ngFor="let p of products">
         <td>{{ p.name }}</td>
         <td>{{ p.price }}Ft</td>
-        <td><button>Vásárlás</button></td>
+        <td><button (click)="buyProduct(p.name, p.price)">Vásárlás</button></td>
       </tr>
     </tbody>
   </table>
