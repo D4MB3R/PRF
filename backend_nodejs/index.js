@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const app = express();
 
 const port = process.env.PORT || 3000;
-const dbUrl = 'mongodb+srv://admin:admin@prfcluster.eagwk.mongodb.net/test';
+const dbUrl = 'mongodb+srv://***:***@prfcluster.eagwk.mongodb.net/test';
 
 mongoose.connect(dbUrl);
 
