@@ -6,18 +6,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PurchaseServiceImpl implements PurchaseService{
+public class PurchaseServiceImpl implements PurchaseService {
 
 	PurchaseRepository purchaseRepo;
-	
+
 	@Autowired
 	public PurchaseServiceImpl(PurchaseRepository purchaseRepo) {
 		this.purchaseRepo = purchaseRepo;
 	}
-	
+
 	@Override
 	public void addPurchase(Purchase purchase) {
-		purchaseRepo.save(purchase);		
+		purchaseRepo.save(purchase);
 	}
 
 	@Override
@@ -34,7 +34,12 @@ public class PurchaseServiceImpl implements PurchaseService{
 
 	@Override
 	public void deletePurchaseById(int id) {
-		this.purchaseRepo.deleteById(id);		
+		this.purchaseRepo.deleteById(id);
+	}
+
+	@Override
+	public Purchase getPurchaseByName(String name) {
+		return this.purchaseRepo.getPurchaseByName(name);
 	}
 
 }

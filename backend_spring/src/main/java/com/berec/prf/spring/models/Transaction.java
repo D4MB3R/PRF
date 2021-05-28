@@ -7,28 +7,31 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "transactions")
 public class Transaction {
-	
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "transaction_generator")
+	@SequenceGenerator(name = "transaction_generator", sequenceName = "transaction_seq", allocationSize = 1)
 	@Column(name = "transaction_id")
 	private int transaction_id;
-	
+
 	@Column(name = "date_of_purchase")
 	private Date date_of_purchase;
-	
+
+	@Column(name = "purchase_id")
 	private int purchase_id;
-	
+
 	@Column(name = "price")
 	private int price;
 
 	public Transaction() {
 	}
-	
+
 	public Transaction(int transaction_id, Date date_of_purchase, int purchase_id, int price) {
 		this.transaction_id = transaction_id;
 		this.date_of_purchase = date_of_purchase;
