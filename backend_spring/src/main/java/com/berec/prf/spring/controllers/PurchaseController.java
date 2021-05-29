@@ -79,7 +79,7 @@ public class PurchaseController {
 	}
 
 	@DeleteMapping("/purchase")
-	public String deleteToDoById(@RequestParam int id) {
+	public String deletePurchaseById(@RequestParam int id) {
 		try {
 			this.purchaseService.deletePurchaseById(id);
 			return "Delete Successful";
